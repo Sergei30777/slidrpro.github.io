@@ -3,8 +3,12 @@
 
     <head>
         <meta charset="utf-8">
-        <title>slaider</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link rel="stylesheet" type="text/css" href="style.css">
+        <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Yeseva+One&display=swap" rel="stylesheet">
+        <title>слайдер</title>
     </head>
 
     <body>
@@ -15,12 +19,6 @@
                         <div class="section2__text">
                             <h1 class="title2">Completed<br> projects</h1>
                             <p class="section2-p"> Only a small part of the work performed by our company is presented<br class="br"> on the site. For 14 years on in the construction<br class="br"> market we have made happy more than 1000 families</p>
-                            <div class="im__mob im__mob-back">
-                                <div class="button-container">
-                                    <button class="button_slaid leftslaid"></button><button class="button_slaid richtslaid">
-                                    </button>
-                                </div>
-                            </div>
                             <div class="block">
                                 <div class="block__1">
                                     <h3 class="title3">City</h3>
@@ -36,70 +34,42 @@
                                 </div>
                             </div>
                             <div class="im">
-                                <a class="prev" onclick="plusSlides(-1)">
-                                    &#8592</a>
-                                <span class="dot" onclick="currentSlide(1)"></span>
-                                <span class="dot" onclick="currentSlide(2)"></span>
-                                <span class="dot" onclick="currentSlide(3)"></span>
-                                <a class="next" onclick="plusSlides(1)">
-                                    &#8594</a>
+                                <div class="slaid-left" onclick="plusSlides(-1)">&larr;</div>
+                                <div class="dot-blooks">
+                                    <div class="dot active" onclick="currentSlide(1)"></div>
+                                    <div class="dot active" onclick="currentSlide(2)"></div>
+                                    <div class="dot active" onclick="currentSlide(3)"></div>
+                                </div>
+                                <div class="slaid-richt" onclick="plusSlides(1)">&rarr;</div>
                             </div>
                         </div>
                         <div class="section2__nav-imegs">
                             <nav>
                                 <ul class="section2-navigation">
-                                    <li class="section2-navigation__item"><a onclick="currentSlide(1)">Rostov-on-Don, Admiral </a></li>
-                                    <li class="section2-navigation__item"><a onclick="currentSlide(2)">Sochi Thieves</a></li>
-                                    <li class="section2-navigation__item"><a onclick="currentSlide(3)">Rostov-on-Don Patriotic</a></li>
+                                    <li class="section2-navigation__item"><a href="#" onclick="currentSlide(1)">Rostov-on-Don, Admiral</a></li>
+                                    <li class="section2-navigation__item"><a href="#" onclick="currentSlide(2)">Sochi Thieves</a></li>
+                                    <li class="section2-navigation__item"><a href="#" onclick="currentSlide(3)">Rostov-on-Don Patriotic</a></li>
                                 </ul>
                             </nav>
-                            <div class="slideschow-container">
-                                <div class="mySlides fade">
-                                    <div class="numbertext"></div>
-                                    <img src="imeges/hero2.jpg" class="opaciti0">
+                            <div class="imeges">
+                                <div class="slideshow-container">
+                                    <div class="mySlides fade">
+                                        <img src="imeges/hero2.jpg" style="width: 100%;">
+                                    </div>
+                                    <div class="mySlides fade">
+                                        <img src="imeges/sla2.jpg" style="width: 100%;">
+                                    </div>
+                                    <div class="mySlides fade">
+                                        <img src="imeges/run.jpg" style="width: 100%;">
+                                    </div>
                                 </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext"></div>
-                                    <img src="imeges/Sla2.jpg" class="opaciti0">
-                                </div>
-                                <div class="mySlides fade">
-                                    <div class="numbertext"></div>
-                                    <img src="imeges/run.jpg" class="opaciti0">
-                                </div>
-                                <script src="script.js"></script>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
-        <!--
-        <div class="section2">
-            <div class="slideschow-container">
-                <div class="mySlides fade">
-                    <div class="numbertext">1/3</div>
-                    <img src="imeges/hero2.jpg" class="opaciti0" style="width: 100%">
-                </div>
-                <div class="mySlides fade">
-                    <div class="numbertext">2/3</div>
-                    <img src="imeges/Sla2.jpg" class="opaciti0" style="width: 100%">
-                </div>
-                <div class="mySlides fade">
-                    <div class="numbertext">3/3</div>
-                    <img src="imeges/Sla3.jpg" class="opaciti0" style="width: 100%">
-                </div>
-                
-                <a class="prev" onclick="plusSlides(-1)">&#10094</a>
-                <a class="next" onclick="plusSlides(1)">&#10095</a>
-            </div>
-            <br>
-            <div style="text-align: center;">
-                <span class="dot" onclick="currentSlide(1)"></span>
-                <span class="dot" onclick="currentSlide(2)"></span>
-                <span class="dot" onclick="currentSlide(3)"></span>
-            </div>
-            <script src="skript.js"></script>
-        </div>-->
+        <script src="script.js"></script>
     </body>
 
 </html>
