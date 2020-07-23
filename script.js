@@ -1,98 +1,96 @@
-const schouprevBtn = document.getElementById("prev");
-const schounextBtn = document.getElementById("next");
-const slideDot = document.querySelectorAll(".dot");
-const slideIns = document.querySelectorAll(".ins");
-let index = 0;
-const texUrls = ["Rostov-on-Don,<br> Admiral ", " Sochi Thieves", "Rostov-on-Don Patriotic"];
-let text = document.querySelector(".text"),
-  te = texUrls[index];
-text.innerHTML = texUrls[index];
+const entities = [
+  {
+    text: "Rostov-on-Don, Admiral",
+    text2: "3.5 months",
+    text3: "81 m2",
+    img: "imeges/hero2.jpg",
+  },
+  {
+    text: "Sochi Thieves",
+    text2: "4 months",
+    text3: "105 m2",
+    img: "imeges/Sla2.jpg",
+  },
+  {
+    text: "Rostov-on-Don Patriotic",
+    text2: "3 months ",
+    text3: "93 m2",
+    img: "imeges/Sla3.jpg",
+  },
+];
 
-let imegesUrls = [];
-imegesUrls.push("imeges/hero2.jpg");
-imegesUrls.push("imeges/Sla2.jpg");
-imegesUrls.push("imeges/Sla3.jpg");
+const text = document.querySelector(".text");
+const text2 = document.querySelector(".text2");
+const text3 = document.querySelector(".text3");
+const img = document.querySelector(".slidImag");
+const dot = document.querySelectorAll(".dot");
+const ins = document.querySelectorAll(".ins");
 
-const slidimg = document.querySelector(".slidImag");
-const slidtext = document.querySelector(".text");
-slidimg.src = imegesUrls[index];
+const setEntity = (index) => {
+  text.innerText = entities[index].text;
+  text2.innerText = entities[index].text2;
+  text3.innerText = entities[index].text3;
+  img.style.backgroundImage = `url(${entities[index].img})`;
+};
 
-const texUrls1 = ["3.5 months", "4 months ", " 3 months "];
-let text1 = document.querySelector(".text1"),
-  te1 = texUrls1[index];
-text1.innerHTML = texUrls1[index];
+const prev = document.querySelector(".prev");
+const next = document.querySelector(".next");
+let currentIndex = 0;
 
-const texUrls2 = ["81 m2", "105 m2 ", " 93 m2"];
-let text2 = document.querySelector(".text2"),
-  te2 = texUrls2[index];
-text2.innerHTML = texUrls2[index];
-
-function textALL() {
-  te = texUrls[index];
-  text.innerHTML = texUrls[index];
-  te1 = texUrls1[index];
-  text1.innerHTML = texUrls1[index];
-  te2 = texUrls2[index];
-  text2.innerHTML = texUrls2[index];
-  dotActif(index);
-  insActif(index);
-}
-
-slideDot.forEach((item, itemDot) => {
+dot.forEach((item, itemDot) => {
   item.addEventListener("click", () => {
-    index = itemDot;
-    slidimg.src = imegesUrls[index];
-    textALL(index);
+    currentIndex = itemDot;
+
+    setdotinsActif(currentIndex);
   });
 });
 
-slideIns.forEach((item, itemDot) => {
+ins.forEach((item, itemDot) => {
   item.addEventListener("click", () => {
-    index = itemDot;
-    slidimg.src = imegesUrls[index];
-    textALL(index);
+    currentIndex = itemDot;
+
+    setdotinsActif(currentIndex);
   });
 });
 
+const setdotinsActif = () => {
+  setEntity(currentIndex);
+  dotActif(currentIndex);
+  insActif(currentIndex);
+};
 const dotActif = (n) => {
-  for (dot of slideDot) {
-    dot.classList.remove("activ");
+  for (slideDot of dot) {
+    slideDot.classList.remove("activ");
   }
-  slideDot[n].classList.add("activ");
+  dot[n].classList.add("activ");
 };
 
 const insActif = (n) => {
-  for (ins of slideIns) {
-    ins.classList.remove("active");
+  for (slideIns of ins) {
+    slideIns.classList.remove("active");
   }
-  slideIns[n].classList.add("active");
+  ins[n].classList.add("active");
 };
 
-function oncliprev(e) {
-  if (index == 0) {
-    index = imegesUrls.length - 1;
-    ;
-    slidimg.src = imegesUrls[index];
-    textALL(index);
+prev.addEventListener("click", () => {
+  if (currentIndex == 0) {
+    currentIndex = entities.length - 1;
+    setEntity(currentIndex);
+    dotActif(currentIndex);
   } else {
-    index--;
-    slidimg.src = imegesUrls[index];
-    textALL(index);
+    currentIndex--;
+    setEntity(currentIndex);
+    dotActif(currentIndex);
   }
-}
-
-function onclinext(e) {
-  if (index === imegesUrls.length - 1) {
-    index = 0;
-    slidimg.src = imegesUrls[index];
-    textALL(index);
+});
+next.addEventListener("click", () => {
+  if (currentIndex == entities.length - 1) {
+    currentIndex = 0;
+    setEntity(currentIndex);
+    dotActif(currentIndex);
   } else {
-    index++;
-    slidimg.src = imegesUrls[index];
-
-    textALL(index);
+    currentIndex++;
+    setEntity(currentIndex);
+    dotActif(currentIndex);
   }
-}
-
-schouprevBtn.addEventListener("click", oncliprev);
-schounextBtn.addEventListener("click", onclinext);
+});
