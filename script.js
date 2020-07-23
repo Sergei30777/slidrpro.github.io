@@ -75,22 +75,18 @@ const insActif = (n) => {
 prev.addEventListener("click", () => {
   if (currentIndex == 0) {
     currentIndex = entities.length - 1;
-    setEntity(currentIndex);
-    dotActif(currentIndex);
+    setdotinsActif(currentIndex);
   } else {
     currentIndex--;
-    setEntity(currentIndex);
-    dotActif(currentIndex);
+    setdotinsActif(currentIndex);
   }
 });
 next.addEventListener("click", () => {
   if (currentIndex == entities.length - 1) {
     currentIndex = 0;
-    setEntity(currentIndex);
-    dotActif(currentIndex);
+    setdotinsActif(currentIndex);
   } else {
     currentIndex++;
-    setEntity(currentIndex);
-    dotActif(currentIndex);
+    setdotinsActif(currentIndex);
   }
 });
