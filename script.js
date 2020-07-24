@@ -45,9 +45,9 @@ dot.forEach((item, itemDot) => {
   });
 });
 
-ins.forEach((item, itemDot) => {
-  item.addEventListener("click", () => {
-    currentIndex = itemDot;
+ins.forEach((iten, itenIns) => {
+  iten.addEventListener("click", () => {
+    currentIndex = itenIns;
 
     setdotinsActif(currentIndex);
   });
